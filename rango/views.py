@@ -12,9 +12,6 @@ from django.core.urlresolvers import reverse
 from rango.forms import CategoryForm, PageForm, UserProfileForm
 from django.contrib.auth.models import User
 
-from rango.webhose_search import run_query
-
-
 def track_url(request):
     page_id = None
     if request.method == 'GET':
@@ -88,13 +85,6 @@ def like_category(request):
         return HttpResponse(likes)
 
 
-def search(request):
-    result_list = []
-    if request.method == 'POST':
-        query = request.POST['query'].strip()
-        if query:
-            result_list = run_query(query)
-    return render(request, 'rango/search.html', {'result_list': result_list})
 
 
 def get_server_side_cookie(request, cookie, default_val=None):
