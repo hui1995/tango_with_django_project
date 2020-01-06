@@ -1,9 +1,13 @@
-{% extends "rango/base-bootstrap.html" %}
+	{% extends 'rango/base.html' %}
 {% block body_block %}
 
+    <div class="container">
+<div class="jumbotron">
 <h2 class="form-signin-heading">Sign Up Here</h2>
+    </div>
 
-<form role="form"  method="post" action=".">
+        <div class="row">
+<form role="form"  method="post" >
     {% csrf_token %}
     <div class="form-group" >
     <p class="required"><label class="required" for="id_username">Username:</label>
@@ -20,9 +24,11 @@
         <input class="form-control" id="id_password2" name="password2" type="password" />
         <span class="helptext">Enter the same password as before, for verification.</span>
     </p>
+            <button type="submit"  class="btn  btn-primary btn-block">Submit</button>
+
 
 </div>
-    <button type="submit" class="btn btn-default">Submit</button>
-</form>
+</form></div>
+    </div>
 {% endblock %}
 
